@@ -1,13 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
+import Comment from './Comment.tsx';
 
 function App() {
-
-  const gettest = () => {
-    fetch("http://127.0.0.1:4000/articles/")
+  const [article, setArticle] = useState<string>("");
+  const [id, setID] = useState<string>("");
+  const address : string = "http://127.0.0.1:4000/articles/";
+  
+  const gettest = (address) => {
+    fetch(address)
     .then(response => {
       return response.json()
     }).then(data => {
       console.log("data from backend: ",data);
+      setArticle(data.body);
     }
     ).catch(
       err => {
@@ -41,8 +47,8 @@ function App() {
       })
   }
 
-  const deltest = () => {
-    fetch("http://127.0.0.1:4000/articles/58", {
+  const deltest = (address) => {
+    fetch(address, {
       method: "DELETE",
       headers: {
         'Accept': 'application/json',
@@ -64,7 +70,7 @@ function App() {
 
   const puttest = () => {
     console.log(obj_sent);
-    fetch("http://127.0.0.1:4000/articles/8", {
+    fetch("http://127.0.0.1:4000/articles/1", {
       method: "PUT",
       headers: {
         'Accept': 'application/json',
@@ -86,28 +92,44 @@ function App() {
 
   return (
     <div className='container-lg bg-light text-center align-items-center'>
+      <br />
       <p>This is to test the http requests sent to the backend</p>
       <button className="btn bg-primary align-item-center" 
         onClick={posttest}
       >
         POST
       </button> 
-      <br />
-      <button className='btn bg-danger align-item-center'
-        onClick={gettest}
-      >
-        GET
-      </button> <br />
-      <button className='btn bg-warning align-item-center'
-        onClick={deltest}
-      >
-        DELETE
-      </button> <br />
+
+      <br /><br />
+
       <button className='btn bg-info align-item-center'
         onClick={puttest}
       >
         PUT
-      </button>
+      </button><br /><br />
+      
+      <label>article ID:</label>
+      <input value={id} onChange={e => {
+        setID(e.target.value);
+        }} />
+      <button className='btn bg-danger align-item-center'
+        onClick={()=>{gettest(address+id);}}
+      >
+        GET
+      </button> 
+      
+      <button className='btn bg-warning align-item-center'
+        onClick={() => {deltest(address+id);setID("");setArticle("");}}
+      >
+        DELETE
+      </button> 
+      
+
+      <br /><br />
+      <p>{article}</p> <br /><br />
+
+
+      <Comment id = {Number(id)} />
     </div>
   );
 }

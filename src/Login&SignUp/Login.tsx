@@ -13,7 +13,8 @@ export default function Login(){
         to obtain values of email and its associated password
     4. Authenticate the password
     */
-    const {AuthoState, setState} = useContext(AuthenContext);
+    const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
+
     const [email, setEmail] = useState<string>("");
     const [emailarr, setEmailArr] = useState<any>([]);
     const [emailid, setID] = useState<number>(0);
@@ -23,6 +24,7 @@ export default function Login(){
         arr.forEach( (ele : any) => {
             if(ele.address === email){
                 setID(ele.id);
+                setEmailId(ele.id);
                 console.log("email id: ",ele.id);
             }else{
                 console.log("cannot extract id");
@@ -56,27 +58,19 @@ export default function Login(){
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log("email: ", email);
-        console.log("passwd: ", passwd);
+        
         if(addressarr.includes(email)){
             findEmailId(email, emailarr);
             console.log(emailid);
             console.log("account_created",true);
-            check_password();
+            //check_password();
+            setState(true);
         }else{
             setEmail("");
             alert("the email is not registered")
         }
     }
-
-    function HandleLogin(){
-        if(email === "test" && passwd === "test123#"){
-            setState(true);}
-        else{
-            alert("wrong password or username");
-        }
-    }
-
+    
     function check_password(){
     if(emailid !== 0){
         fetch("http://127.0.0.1:4000/emails/"+String(emailid))
@@ -117,10 +111,10 @@ export default function Login(){
                 <input className="form-control-sm" value={email}
                     onChange={(e:any)=>{setEmail(e.target.value);}}
                 /> <br />
-                <label className="form-label">password:</label><br />
+                {/* <label className="form-label">password:</label><br />
                 <input className="form-control-sm" type="password" value={passwd}
                     onChange={(e:any)=>{setPasswd(e.target.value);}}
-                /><br />
+                /><br /> */}
                 <input type="submit" name="Login" />
            </form><br />
            <Link to="/register">Register for a new account</Link>

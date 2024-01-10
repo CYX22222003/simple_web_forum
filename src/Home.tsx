@@ -27,7 +27,7 @@ export default function Home(){
         <div>
             <div className="container mt-4">
             <h2>Article List</h2>
-            <div className="table-responsive" style={{ maxHeight: '300px', overflowY: 'scroll' }}>
+            <div className="table-responsive" style={{ maxHeight: '700px', overflowY: 'scroll' }}>
                 <table className="table table-striped">
                 <thead>
                     <tr>

@@ -1,10 +1,12 @@
 /*
     1. useContext to pass the email id to the Article creation element
-    2. The email id passed into the element will be used as a reference for posting new articles
+    2. email_id is the unique id that is related to the accounts of users
+    3. The email id passed into the element will be used as a reference for posting new articles
 */
 
-import React from 'react';
-import { useState } from 'react';
+import React, { useContext } from 'react';
+import { useState, useEffect} from 'react';
+import { AuthenContext } from '../App.tsx';
 
 export default function CreateArticle(){
     interface sent {
@@ -13,6 +15,7 @@ export default function CreateArticle(){
         email_id : number
     };
 
+    const {AuthoState, setState,email_id, setEmailId} = useContext(AuthenContext);
     const [article, setArticle] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [obj_sent, setObj] = useState<sent>({"title":"","body":"",email_id: 0});
@@ -20,7 +23,9 @@ export default function CreateArticle(){
     const address : string = "http://127.0.0.1:4000/articles/";
 
     const posttest = (obj_sent : sent) => {
+        //setObj({"title" : title, "body" : article + " end", email_id:email_id});
         console.log(obj_sent);
+        alert("ready to sent?");
         fetch(address, {
         mode: "no-cors",
         method: "POST",
@@ -35,6 +40,7 @@ export default function CreateArticle(){
             //console.log(request)
             console.log(response);
             console.log("message sent");
+            alert("message sent");
         }
         ).catch(
         () => {
@@ -56,7 +62,7 @@ export default function CreateArticle(){
         (response) => {
             //console.log(request)
             console.log(response);
-            console.log("message sent");
+            alert("message sent");
         }
         ).catch(
         () => {
@@ -66,20 +72,26 @@ export default function CreateArticle(){
 
     return (
         <div className='container-lg bg-light text-center align-items-center'>
+        <form onSubmit={(e:any) => {
+            e.preventDefault();
+            
+            const {title, article} = e.target;
+            const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id};
+            posttest(obj_sent);
+        }}>
             <label className="form-label">Title</label>
-            <input className="form-control" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:2});}} /><br /><br />
+            <input className="form-control" id= "title" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}} /><br /><br />
             <label className="form-label">Article</label>
-            <textarea className="form-control" value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:2});}}/><br />
-            <button className='btn bg-danger align-item-center' onClick={() => {
-                posttest(obj_sent);
-            }}>
+            <textarea className="form-control" id = "article" value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}}/><br />
+            <button className='btn bg-danger align-item-center' type='submit'>
                 Create New
             </button> 
             <br />
-            <input className="form-control" value={id} onChange={(e) => {
+        </form>
+            {/* <input className="form-control" value={id} onChange={(e) => {
                 setID(e.target.value);
             }}/>
-            <button className='btn bg-warning align-item-center' onClick={() => puttest(obj_sent, address + id)}>Update</button>
+            <button className='btn bg-warning align-item-center' onClick={() => puttest(obj_sent, address + id)}>Update</button> */}
         </div>
     )
 

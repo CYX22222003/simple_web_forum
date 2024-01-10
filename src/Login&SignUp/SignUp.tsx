@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Register from "./Register.tsx";
 export default function SignUp(){
     const [maillst, setMaillst] = useState<any>([]);
@@ -25,6 +26,8 @@ export default function SignUp(){
             console.log("details of errors: ", err);
           }
         );}
+
+    useEffect(()=>{getemail(address);},[])
 
     const postmail = (obj_sent : email) =>{
         fetch(address, {
@@ -78,17 +81,26 @@ export default function SignUp(){
                 return (<div>{ele.address}<br /></div>);
             })} */}
             <br />
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(e:any) => {
+                e.preventDefault();
+                const {address} = e.target;
+                handleSubmithelper({address:address.value});
+                console.log(address);
+            }
+            }>
                 <label className="form-label">Email: </label>
-                <input type="email" name="Email" value={submitinfo} onChange={(e : any) => {
+                <input type="email" name="Email" id = "address" value={submitinfo} onChange={(e : any) => {
                     setStatus(false);
                     setInfo(e.target.value);
-                    getemail(address);
+                    //getemail(address);
                 }}/>
                 <br />
-                <input name="submit" type="submit" />
+                <input name="submit" type="submit" /> <br />
+                {!status ? ("Not Registered") : ("Account Registered")} <br/ >
+                <Link to="/login">Back to Login page</Link>
             </form>
-            {<Register email={submitinfo} setEmail={setInfo} emaillst={maillst} Regstatus={status} setReg={setStatus}/> }
+            {/* {<Register email={submitinfo} setEmail={setInfo} emaillst={maillst} Regstatus={status} setReg={setStatus}/> } */}
+            
         </div>
         </div>
     )

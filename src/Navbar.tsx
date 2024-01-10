@@ -19,7 +19,7 @@ export default function Navbar(){
                     <a className="dropdown-item" href="#">Home</a>
                     <a className="dropdown-item" href="#">About</a>
                     <a className="dropdown-item" href="#create">CREATE</a>
-                    <a className="dropdown-item" href="#show">SHOW</a>
+                    <a className="dropdown-item" href="#profile">PROFILE</a>
                     <a className="dropdown-item" href="#logout">Log out</a>
                 </div>
             </div>
@@ -40,7 +40,7 @@ export default function Navbar(){
                 </li>
 
                 <li className="nav-item">
-                <a className="nav-link" href="#show">SHOW</a>
+                <a className="nav-link" href="#profile">PROFILE</a>
                 </li>
 
                 <li className="nav-item">

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, redirect} from 'react-router-dom';
 import {useState, useContext, createContext} from 'react';
 import ShowArticle from './ArticleAction/ShowArticle.tsx';
 import CreateArticle from './ArticleAction/CreateArticle.tsx';
@@ -62,6 +62,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<SignUp />} />
     </Routes>
   </AuthenContext.Provider> 

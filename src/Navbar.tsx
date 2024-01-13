@@ -21,10 +21,11 @@ export default function Navbar(){
             <div className="navbar-toggler" data-bs-toggle="dropdown" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar">
                 <div className="collapsibleNavbar text-white">
                     <a className="dropdown-item" href="#">Home</a>
-                    <a className="dropdown-item" href="#">About</a>
+                    
                     <a className="dropdown-item" href="#create">CREATE</a>
                     <a className="dropdown-item" href="#profile">PROFILE</a>
                     <a className="dropdown-item" href="#logout">Log out</a>
+                    <a className="dropdown-item" href="#">Log In</a>
                 </div>
             </div>
             
@@ -33,10 +34,6 @@ export default function Navbar(){
             <ul className="navbar-nav">
                 <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#home">Home</a>
-                </li>
-
-                <li className="nav-item">
-                <a className="nav-link" href="#">About</a>
                 </li>
 
                 <li className="nav-item">
@@ -49,6 +46,10 @@ export default function Navbar(){
 
                 <li className="nav-item">
                 <a className="nav-link" href="#logout">LOG OUT</a>
+                </li>
+
+                <li className="nav-item">
+                <a className="nav-link" href="#">LOG IN</a>
                 </li>
             </ul>
         </div>

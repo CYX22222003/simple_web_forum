@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useState, useContext} from "react";
 import { AuthenContext } from "../App.tsx";
 
@@ -64,6 +64,7 @@ export default function Login(){
             console.log("account_created",true);
             //check_password();
             setState(true);
+            redirect("/")
         }else{
             setEmail("");
             alert("the email is not registered")

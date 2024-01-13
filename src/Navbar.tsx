@@ -1,7 +1,11 @@
 /*
     1. Enable users to navigate between different functions of the web app
     2. Functions: profile, show & edit articles, read & comment on the articles, create & Upload new articles.
-    3. Headers: Home, Profile, Create, My Content, Show
+    3. Headers: 
+        Home: show all articles
+        CREATE: create new article
+        PROFILE: show articles and comments that are created by users
+        LOG OUT: log out from the current account
 */
 import React from "react";
 

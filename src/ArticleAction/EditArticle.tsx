@@ -1,3 +1,9 @@
+/*
+  1. it uses variable routing for the passing of parameters
+  2. the parameter article id obtained from routing paths will be used to load the correct article
+  3. it includes function that submit a PUT request to the backend to change the content with the specific article id
+*/ 
+
 import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";

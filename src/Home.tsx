@@ -4,7 +4,7 @@
 */ 
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 export default function Home(){
     
 
@@ -41,7 +41,7 @@ export default function Home(){
                     <tr>
                     <td><a href={"#show/" + String(item.id)} className="list-group-item list-group-item-action" key={item.id}>{item.title} </a></td>
                     <td>{item.body.substring(0,10)+"..."}</td>
-                    <td><a href={"#show/" + String(item.id)}>detail</a></td>
+                    <td><a href={"#show/" + String(item.id)}>full text</a></td>
                     </tr>);
                 })
                 }

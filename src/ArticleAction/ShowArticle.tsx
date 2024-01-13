@@ -1,14 +1,30 @@
 import React from 'react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import Comment from './Comment.tsx';
 import { useParams } from 'react-router-dom';
 import CreateComment from "./CreateComment.tsx"
 import { AuthenContext } from '../App.tsx';
+
+function FindUsername({emailid}:{emailid:any}){
+  const [username, setUserName] = useState<any>(null);
+  useEffect( () => {
+  fetch("http://127.0.0.1:4000/emails/" + String(emailid))
+  .then((response:any) => {
+    return response.json();
+  }).then((data:any) => {
+    console.log(data)
+    setUserName(data.address);
+  });});
+  console.log(username);
+  return (<p>{username}</p>);
+}
+
 export default function ShowArticle(){
   const [article, setArticle] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [isHide, setIsHide] = useState<boolean>(true);
   const [article_id, setID] = useState<number>(0);
+  const [author_id, setAuthorID] = useState<number>(0);
   
   const {userID} = useParams();
   const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
@@ -39,10 +55,13 @@ export default function ShowArticle(){
     .then(response => {
       return response.json()
     }).then(data => {
+      // checking: 
       console.log("data from backend: ",data);
       setArticle(data.body);
       setTitle(data.title);
       setID(data.id);
+      setAuthorID(data.email_id);
+      console.log(author_id);
     }
     ).catch(
       err => {
@@ -52,10 +71,12 @@ export default function ShowArticle(){
     );}
 
   gettest(address+userID);
+
   return (
     <div className='container-lg bg-light text-center align-items-center'>
       <br />
       <h2>{title}</h2>
+      <FindUsername emailid={author_id}/>
       <br />
       <textarea 
         className="form-control"
@@ -63,17 +84,7 @@ export default function ShowArticle(){
         value={article}
         readOnly
       />
-      {/* <button className='btn bg-danger align-item-center'
-        onClick={()=>{gettest(address+userID);}}
-      >
-        GET
-      </button>  */}
-      
-      {/* <button className='btn bg-warning align-item-center'
-        onClick={() => {deltest(address+userID);setArticle("");}}
-      >
-        DELETE
-      </button>  */}<br /> <br />
+      <br /> <br />
       <CreateComment article_id={article_id} email_id = {email_id}/>
       <br /><br />
       <Comment id = {Number(userID)} isHide = {isHide} setIsHide={setIsHide}/>

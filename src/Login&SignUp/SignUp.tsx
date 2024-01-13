@@ -1,3 +1,9 @@
+/*
+    This is a page for new users to create an email for log in.
+    The requirement of email is for the password-based autehntication.
+    since i have removed that function, the requirement for email may be changed later.
+*/ 
+
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";

@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Write Up for the Programme
+
+## Introduction of the program
+
+### frontend: React, TypeScript, BootStrap 5
+    - it is built in React TypeScript with a BootStrap 5 CSS framework
+    - it enables users to register using a username/email and provides basic account-based authentication for users to log in
+    - It enales users to *create* own blogs/articles on the forum, as well as *read* and *comment* other users' articles
+    - Users can also *update* their articles and comments created by them on the forum
+    - It also enables users to *delete* comments they created.
+ 
+ ### backend: Ruby on Rails, Postgres (if it is deployed) /SQLite

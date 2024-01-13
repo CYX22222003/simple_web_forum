@@ -1,3 +1,7 @@
+/*
+    This is similar to the EditArticle element.
+*/ 
+
 import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";

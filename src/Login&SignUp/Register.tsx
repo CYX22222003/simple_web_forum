@@ -1,3 +1,8 @@
+/*
+ This is initially created for potential password-based authentication
+ However, this is not the proper way to perform the authentication tasks as the password information may be intercepted easily.
+*/ 
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";

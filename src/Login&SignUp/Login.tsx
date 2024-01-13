@@ -8,10 +8,9 @@ export default function Login(){
     1. create a function that GET email lists
     2. Verify that the email is created
      2.1 if email is not created, alert user to register
-     2.2 Otherwisem obtain email id
-    3. GET request is sent, once the email id is obtained 
-        to obtain values of email and its associated password
-    4. Authenticate the password
+     2.2 Otherwise obtain email id
+    3. update email id passed by the useContext hook and change the authentication status
+    4. the change in authentication status will enable auto routing into the web forum
     */
     const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
 

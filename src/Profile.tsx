@@ -1,5 +1,5 @@
 /*
-    1. Create a profile page containing personal information of user.
+    1. This is a profile page unique to each users of the web forum
     2. Create a portion that shows a lists of articles and comments created by users.
     3. Enable them to delete and edit comments and articles CREATED by them.
     4. Use useContext to display correct message to the user
@@ -70,6 +70,7 @@ export default function Profile(){
                             <td>{ele.title}</td>
                             <td>{ele.body.substring(0,10) + "..."}</td>
                             <td>{ele.updated_at}</td>
+                            <td><Link to={"/show/" + ele.id}>full text</Link></td>
                             <td><Link to={"http:/localhost:3000/edit_article/" + String(ele.id)}>Edit</Link></td>
                             
                         </tr>

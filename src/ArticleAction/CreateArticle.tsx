@@ -20,7 +20,7 @@ export default function CreateArticle(){
     const [title, setTitle] = useState<string>("");
     const [obj_sent, setObj] = useState<sent>({"title":"","body":"",email_id: 0});
     const [id, setID] = useState<string>("");
-    const address : string = "http://127.0.0.1:4000/articles/";
+    const address : string = "https://demo-iu1g.onrender.com/articles/";
 
     const posttest = (obj_sent : sent) => {
         //setObj({"title" : title, "body" : article + " end", email_id:email_id});

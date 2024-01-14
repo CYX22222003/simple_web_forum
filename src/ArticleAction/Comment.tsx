@@ -10,7 +10,7 @@ import { useState } from "react";
 function FindUsername({emailid}:{emailid:any}){
   const [username, setUserName] = useState<any>(null);
   useEffect( () => {
-  fetch("http://127.0.0.1:4000/emails/" + String(emailid))
+  fetch("https://demo-iu1g.onrender.com/emails/" + String(emailid))
   .then((response:any) => {
     return response.json();
   }).then((data:any) => {
@@ -30,7 +30,7 @@ export default function Comment({id, isHide, setIsHide} : {id : number, isHide:b
         email_id: number
     }
     
-    const address:string = 'http://127.0.0.1:4000/comments/';
+    const address:string = 'https://demo-iu1g.onrender.com/comments/';
     const [objlst, setLst] = useState<Array<comment>>([]);
     
     

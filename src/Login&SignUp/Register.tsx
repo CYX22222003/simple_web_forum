@@ -33,7 +33,7 @@ export default function Register({email, setEmail, emaillst, Regstatus, setReg} 
     const [status, setStatus] = useState<Registered>("Not Created");
 
     const register = (obj_sent : sent) => {
-        fetch("http://127.0.0.1:4000/users/", {
+        fetch("https://demo-iu1g.onrender.com/users/", {
             mode: "no-cors",
             method: "POST",
             headers: {

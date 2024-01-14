@@ -32,7 +32,7 @@ export default function Profile(){
     const [articleLs, setArticleLs] = useState<any>([]);
     const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
     useEffect(()=>{
-        const address:string = "http://127.0.0.1:4000/emails/articles/" + String(email_id);
+        const address:string = "https://demo-iu1g.onrender.com/emails/articles/" + String(email_id);
         fetch(address)
         .then((response:any) => {
             return response.json();
@@ -42,7 +42,7 @@ export default function Profile(){
     },[]);
     
     useEffect(()=>{
-        const address:string = "http://127.0.0.1:4000/emails/comments/" + String(email_id);
+        const address:string = "https://demo-iu1g.onrender.com/emails/comments/" + String(email_id);
         fetch(address)
         .then((response:any) => {
             return response.json();
@@ -107,7 +107,7 @@ export default function Profile(){
                             <button
                                     onClick={() => {
                                         const temp_id = ele.id;
-                                        deltest("http://127.0.0.1:4000/comments/" + String(ele.id));
+                                        deltest("https://demo-iu1g.onrender.com/comments/" + String(ele.id));
                                         setCommentLs(commentLs.filter(ele => ele.id !== temp_id))
                                     }}
                                 >delete

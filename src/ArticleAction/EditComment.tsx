@@ -15,7 +15,7 @@ export default function EditComment(){
     const [article_id, setArticleID] = useState<number>(0);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:4000/comments/" + commentID)
+        fetch("https://demo-iu1g.onrender.com/comments/" + commentID)
         .then((response:any) =>{
             return response.json()
         }).then((data:any) => {
@@ -54,7 +54,7 @@ export default function EditComment(){
             e.preventDefault();
             const {content} = e.target;
             const obj_sent = {"content" : content.value, article_id:article_id, email_id: email_id};
-            puttest(obj_sent,"http://127.0.0.1:4000/comments/" + commentID);
+            puttest(obj_sent,"https://demo-iu1g.onrender.com/comments/" + commentID);
         }}>
             <label className="form-label">Comment</label>
             <textarea className="form-control" id = "content" value={content} 

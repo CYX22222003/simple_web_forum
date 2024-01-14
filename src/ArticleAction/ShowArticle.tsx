@@ -8,13 +8,13 @@ import { AuthenContext } from '../App.tsx';
 function FindUsername({emailid}:{emailid:any}){
   const [username, setUserName] = useState<any>(null);
   useEffect( () => {
-  fetch("http://127.0.0.1:4000/emails/" + String(emailid))
+  fetch("https://demo-iu1g.onrender.com/emails/" + String(emailid))
   .then((response:any) => {
     return response.json();
   }).then((data:any) => {
     console.log(data)
     setUserName(data.address);
-  });});
+  }).catch((err:any) => {console.log(err);});});
   console.log(username);
   return (<p>{username}</p>);
 }
@@ -28,7 +28,7 @@ export default function ShowArticle(){
   
   const {userID} = useParams();
   const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
-  const address : string = "http://127.0.0.1:4000/articles/";
+  const address : string = "https://demo-iu1g.onrender.com/articles/";
   // const deltest = (address : string) => {
   //   fetch(address, {
   //     method: "DELETE",

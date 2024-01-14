@@ -17,7 +17,7 @@ export default function EditArticle(){
     const [article, setArticle] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     useEffect(() => {
-        fetch("http://127.0.0.1:4000/articles/" + articleID)
+        fetch("https://demo-iu1g.onrender.com/articles/" + articleID)
         .then((response:any) =>{
             return response.json()
         }).then((data:any) => {
@@ -56,7 +56,7 @@ export default function EditArticle(){
             
             const {title, article} = e.target;
             const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id};
-            puttest(obj_sent,"http://127.0.0.1:4000/articles/" + articleID);
+            puttest(obj_sent,"https://demo-iu1g.onrender.com/articles/" + articleID);
         }}>
             <label className="form-label">Title</label>
             <input className="form-control" id= "title" value={title} 

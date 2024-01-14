@@ -33,7 +33,7 @@ export default function Login(){
     }
 
     useEffect(() => {
-    fetch("http://127.0.0.1:4000/emails/")
+    fetch("https://demo-iu1g.onrender.com/emails/")
         .then((response:any) => {
             return response.json();
         }).then((data:any) => {
@@ -73,7 +73,7 @@ export default function Login(){
     
     function check_password(){
     if(emailid !== 0){
-        fetch("http://127.0.0.1:4000/emails/"+String(emailid))
+        fetch("https://demo-iu1g.onrender.com/emails/"+String(emailid))
         .then((response:any) =>{
             console.log(response);
             return response.json();

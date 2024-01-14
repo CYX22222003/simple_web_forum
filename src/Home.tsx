@@ -9,7 +9,7 @@ export default function Home(){
     
 
     const [articlelst,setArticleLs] = useState<any>([]);
-    const address : string = "http://127.0.0.1:4000/articles/";
+    const address : string = "https://demo-iu1g.onrender.com/articles/";
 
     useEffect(()=>
     {fetch(address)

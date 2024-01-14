@@ -13,7 +13,7 @@ export default function SignUp(){
     const [submitinfo, setInfo] = useState<string>("");
     const [status, setStatus] = useState<boolean>(false);
 
-    const address : string = "http://127.0.0.1:4000/emails/";
+    const address : string = "https://demo-iu1g.onrender.com/emails/";
     interface email {
         address: string
     }

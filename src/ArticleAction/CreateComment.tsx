@@ -15,7 +15,7 @@ export default function CreateComment({article_id, email_id} : {article_id : num
     const [submitContent, setContent] = useState<string>("")
 
     function handleSubmit(submitInfo){
-        const address:string = "http://127.0.0.1:4000/comments/";
+        const address:string = "https://demo-iu1g.onrender.com/comments/";
         
         fetch(address, {
             mode: "no-cors",

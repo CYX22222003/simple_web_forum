@@ -1,5 +1,6 @@
 {
   "name": "test_frontend",
+  "homepage": "https://CYX22222003.github.io/simple_web_forum",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://127.0.0.1:4000",

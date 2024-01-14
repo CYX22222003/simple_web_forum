@@ -71,7 +71,7 @@ export default function Profile(){
                             <td>{ele.body.substring(0,10) + "..."}</td>
                             <td>{ele.updated_at}</td>
                             <td><Link to={"/show/" + ele.id}>full text</Link></td>
-                            <td><Link to={"http:/localhost:3000/edit_article/" + String(ele.id)}>Edit</Link></td>
+                            <td><Link to={"/edit_article/" + String(ele.id)}>Edit</Link></td>
                             
                         </tr>
                     );
@@ -112,7 +112,7 @@ export default function Profile(){
                                     }}
                                 >delete
                             </button><br /><br />
-                            <Link to={"http:/localhost:3000/edit_comment/" + String(ele.id)}>
+                            <Link to={"/edit_comment/" + String(ele.id)}>
                                 edit
                             </Link>
                             </td>

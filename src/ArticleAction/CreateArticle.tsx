@@ -82,7 +82,7 @@ export default function CreateArticle(){
             <label className="form-label">Title</label>
             <input className="form-control" id= "title" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}} /><br /><br />
             <label className="form-label">Article</label>
-            <textarea className="form-control" id = "article" value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}}/><br />
+            <textarea className="form-control" id = "article" rows={10} value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}}/><br />
             <button className='btn bg-danger align-item-center' type='submit'>
                 Create New
             </button> 

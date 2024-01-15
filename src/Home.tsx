@@ -3,12 +3,14 @@
     2. Provide links to show all the article
 */ 
 import React from "react";
+import SearchBar from "./SearchBar.tsx";
 import { useState, useEffect } from "react";
 
 export default function Home(){
     
 
     const [articlelst,setArticleLs] = useState<any>([]);
+    const [titlelst, setTitleLst] = useState<string[]>([]);
     const address : string = "https://demo-iu1g.onrender.com/articles/";
 
     useEffect(()=>
@@ -18,15 +20,18 @@ export default function Home(){
     }).then((data:any) => {
         console.log(data);
         setArticleLs(data);
+        setTitleLst(data.map((ele:any) => {return ele.title;}));
         console.log("article lists:", data);
     }).catch(
         err =>{console.log(err);}
     );},[]);
 
+    
     return (
         <div>
             <div className="container mt-4">
             <h2>Article List</h2>
+            <SearchBar articlelst={articlelst} setArticleLs={setArticleLs}/>
             <div className="table-responsive" style={{ maxHeight: '700px', overflowY: 'scroll' }}>
                 <table className="table table-striped">
                 <thead>

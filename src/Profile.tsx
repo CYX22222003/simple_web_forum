@@ -96,7 +96,7 @@ export default function Profile(){
                         <tr>
                             <td><textarea 
                                 className="form-control"
-                                rows={7}
+                                rows={3}
                                 value={ele.content}
                                 readOnly
                                 />

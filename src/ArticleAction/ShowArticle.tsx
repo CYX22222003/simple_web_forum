@@ -25,11 +25,11 @@ export default function ShowArticle(){
   const [isHide, setIsHide] = useState<boolean>(true);
   const [article_id, setID] = useState<number>(0);
   const [author_id, setAuthorID] = useState<number>(0);
-  
+  const [tag_id, setTagID] = useState<number>(0);
   const {userID} = useParams();
   const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
   const address : string = "https://demo-iu1g.onrender.com/articles/";
- 
+  const tagMapping : string[] = ["article", "diary", "issue", "others"];
 
   const gettest = (address : string) => {
     fetch(address)
@@ -42,7 +42,8 @@ export default function ShowArticle(){
       setTitle(data.title);
       setID(data.id);
       setAuthorID(data.email_id);
-      console.log(author_id);
+      setTagID(data.tag_id);
+      
     }
     ).catch(
       err => {
@@ -58,6 +59,8 @@ export default function ShowArticle(){
       <br />
       <h2>{title}</h2>
       <FindUsername emailid={author_id}/>
+      <br />
+      <label>{tagMapping[tag_id - 1]}</label>
       <br />
       <textarea 
         className="form-control"

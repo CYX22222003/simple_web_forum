@@ -29,26 +29,7 @@ export default function ShowArticle(){
   const {userID} = useParams();
   const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
   const address : string = "https://demo-iu1g.onrender.com/articles/";
-  // const deltest = (address : string) => {
-  //   fetch(address, {
-  //     method: "DELETE",
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json',
-  //       'Access-Control-Allow-Origin': '*',
-  //       'X-Content-Type-Options' : 'nosniff'
-  //     }
-  //   }).then(
-  //     (response) => {
-  //       //console.log(request)
-  //       console.log(response);
-  //       console.log("message sent");
-  //     }
-  //   ).catch(
-  //     () => {
-  //       console.log("Error");
-  //     })
-  // }
+ 
 
   const gettest = (address : string) => {
     fetch(address)

@@ -12,13 +12,14 @@ export default function CreateArticle(){
     interface sent {
         title : string,
         body : string,
-        email_id : number
+        email_id : number,
+        tag_id : number
     };
 
     const {AuthoState, setState,email_id, setEmailId} = useContext(AuthenContext);
     const [article, setArticle] = useState<string>("");
     const [title, setTitle] = useState<string>("");
-    const [obj_sent, setObj] = useState<sent>({"title":"","body":"",email_id: 0});
+    const [obj_sent, setObj] = useState<sent>({"title":"","body":"",email_id: 0, tag_id:1});
     const [id, setID] = useState<string>("");
     const address : string = "https://demo-iu1g.onrender.com/articles/";
 
@@ -70,19 +71,29 @@ export default function CreateArticle(){
         })
     }
 
+    const [tag_id, setTagID] = useState<number>(1);
+
+
     return (
         <div className='container-lg bg-light text-center align-items-center'>
         <form onSubmit={(e:any) => {
             e.preventDefault();
             
             const {title, article} = e.target;
-            const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id};
+            const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id, tag_id:tag_id};
             posttest(obj_sent);
         }}>
+            <label className='form-label'>Type</label>
+            <select value={tag_id} onChange={(e:any) =>{setTagID(e.target.value);} }>
+                <option value={1}>article</option>
+                <option value={2}>diary</option>
+                <option value={3}>issue</option>
+                <option value={4}>others</option>
+            </select><br />
             <label className="form-label">Title</label>
-            <input className="form-control" id= "title" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}} /><br /><br />
+            <input className="form-control" id= "title" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id, tag_id: tag_id});}} /><br /><br />
             <label className="form-label">Article</label>
-            <textarea className="form-control" id = "article" rows={10} value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id});}}/><br />
+            <textarea className="form-control" id = "article" rows={10} value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id, tag_id: tag_id});}}/><br />
             <button className='btn bg-danger align-item-center' type='submit'>
                 Create New
             </button> 

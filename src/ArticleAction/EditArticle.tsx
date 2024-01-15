@@ -11,11 +11,12 @@ import { AuthenContext } from "../App.tsx";
 
 export default function EditArticle(){
     const {articleID} = useParams();
-    //for checking only: console.log(articleID);
     const {AuthoState, setState, email_id, setEmailId} = useContext(AuthenContext);
 
     const [article, setArticle] = useState<string>("");
     const [title, setTitle] = useState<string>("");
+    const [tag_id, setTagID] = useState<number>(0);
+
     useEffect(() => {
         fetch("https://demo-iu1g.onrender.com/articles/" + articleID)
         .then((response:any) =>{
@@ -23,6 +24,7 @@ export default function EditArticle(){
         }).then((data:any) => {
             setArticle(data.body);
             setTitle(data.title);
+            setTagID(data.tag_id);
             console.log(data);
         });
     },[])
@@ -55,9 +57,16 @@ export default function EditArticle(){
             e.preventDefault();
             
             const {title, article} = e.target;
-            const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id};
+            const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id, tag_id:tag_id};
             puttest(obj_sent,"https://demo-iu1g.onrender.com/articles/" + articleID);
         }}>
+            <label className='form-label'>Type</label>
+            <select value={tag_id} onChange={(e:any) =>{setTagID(e.target.value);} }>
+                <option value={1}>article</option>
+                <option value={2}>diary</option>
+                <option value={3}>issue</option>
+                <option value={4}>others</option>
+            </select><br />
             <label className="form-label">Title</label>
             <input className="form-control" id= "title" value={title} 
                 onChange={(e) => {setTitle(e.target.value);}} /><br /><br />

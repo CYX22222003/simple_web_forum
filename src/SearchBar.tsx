@@ -30,14 +30,14 @@ export default function SearchBar({articlelst, setArticleLs} : {articlelst:any, 
         <div className="input-group">
             <input className="search-box" id="search-box" placeholder="Search..." onChange={filterBySearch} />
         </div>
-        <div className="input-group">
-
-            <select aria-placeholder = "select type" onChange={fileterByTag}>
+        
+        <div className="justify-content-end input-group">
+            <select onChange={fileterByTag}>
+                <option value={0}>---select type---</option>
                 <option value={1}>article</option>
                 <option value={2}>diary</option>
                 <option value={3}>issue</option>
                 <option value={4}>others</option>
-                <option value={0}>...</option>
             </select>
         </div>
         <div className="col-md-5">

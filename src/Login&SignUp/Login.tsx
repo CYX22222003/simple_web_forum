@@ -115,7 +115,7 @@ export default function Login(){
                 <input className="form-control-sm" type="password" value={passwd}
                     onChange={(e:any)=>{setPasswd(e.target.value);}}
                 /><br /> */}
-                <input type="submit" name="Login" />
+                <input type="submit" name="Login" disabled={emailarr.length === 0}/>
            </form><br />
            <Link to="/register">Register for a new account</Link>
         </div><br />

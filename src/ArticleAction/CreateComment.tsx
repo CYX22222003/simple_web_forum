@@ -49,8 +49,9 @@ export default function CreateComment({article_id, email_id} : {article_id : num
                 }}
             />
             <br />
-            <button className="btn bg-danger text-white" type="submit">Create Comment</button>
+            <button className="btn bg-success text-white" type="submit">Create Comment</button>
             </form>
+            <hr />
         </div>
     )
 }

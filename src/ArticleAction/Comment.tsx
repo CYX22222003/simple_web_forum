@@ -6,7 +6,7 @@
 */ 
 import React, { useEffect } from "react";
 import { useState } from "react";
-
+import { TimeStringFormat } from "../Profile.tsx";
 function FindUsername({emailid}:{emailid:any}){
   const [username, setUserName] = useState<any>(null);
   useEffect( () => {
@@ -67,29 +67,32 @@ export default function Comment({id, isHide, setIsHide} : {id : number, isHide:b
     useEffect(()=>{handleShow();},[]);
     return (
       <div className='container-lg bg-light text-center align-items-center'>
-        <button className='btn bg-success text-white align-item-center' onClick={handleShow}>Show Comment</button>
-        
-        <button className='btn bg-dark text-white align-item-center' onClick={handleHide}>Hide Comment</button>
+        <div>
+          <button className='btn bg-secondary text-white align-item-center' onClick={handleShow}>Show Comment</button>
+          <span className="tab">          </span>
+          <button className='btn bg-warning text-white align-item-center' onClick={handleHide}>Hide Comment</button>
+        </div>
         <br />
-        <table className="table table-striped bg-light table-hover">
+        <table className="table table-striped bg-light table-hover width:100%" >
           <thead>
-            <td>Username</td>
-            <td>Comment</td>
+            <td><h2 className="bg-light fst-italic">Comment</h2></td>
           </thead>
           <tbody>
           {objlst.map((ele) => {
             return (
             <tr key={ele.email_id}>
+             
               <td>
-                <div className="container-sm">
-                  <FindUsername emailid = {ele.email_id} />
-                  {ele.updated_at}
-                </div><br />
+              <div className="container-lg">
+                <FindUsername emailid = {ele.email_id} />
+                <textarea className="form-control"
+                  rows={5}
+                  value={ele.content}
+                  readOnly/>
+                <pre>{TimeStringFormat(ele.updated_at)}</pre>
+              </div>
               </td>
-              <textarea className="form-control"
-                rows={5}
-                value={ele.content}
-                readOnly/>
+
             </tr>);
           })}
           </tbody>

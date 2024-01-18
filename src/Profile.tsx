@@ -7,6 +7,25 @@
 import React, { useState, useEffect, useContext } from "react"
 import { AuthenContext } from "./App.tsx";
 import { Link } from "react-router-dom";
+
+export function TimeStringFormat(timestring: any){
+    const dateTime = new Date(timestring);
+
+    const options : any = {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        timeZoneName: "short",
+    };
+
+    const formattedTime = new Intl.DateTimeFormat("en-US", options).format(dateTime);
+    return formattedTime;
+}
+
+
 export default function Profile(){
     const deltest = (address : string) => {
     fetch(address, {
@@ -55,7 +74,7 @@ export default function Profile(){
         <div className="container-lg bg-light text-center align-items-center">
         <h1>Profile page</h1><br />
         <div>
-            <h3>My Articles</h3><br /><br />
+            <h3>My Posts</h3><br /><br />
             <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'scroll' }}>
             <table className="table table-striped">
                 <thead>
@@ -69,9 +88,9 @@ export default function Profile(){
                         <tr>
                             <td>{ele.title}</td>
                             <td>{ele.body.substring(0,10) + "..."}</td>
-                            <td>{ele.updated_at}</td>
-                            <td><Link to={"/show/" + ele.id}>full text</Link></td>
-                            <td><Link to={"/edit_article/" + String(ele.id)}>Edit</Link></td>
+                            <td>{TimeStringFormat(ele.updated_at)}</td>
+                            <td><Link to={"/show/" + ele.id}><button className="btn btn-success">full text</button></Link></td>
+                            <td><Link to={"/edit_article/" + String(ele.id)}><button className="btn btn-warning">Edit</button></Link></td>
                             
                         </tr>
                     );
@@ -101,10 +120,10 @@ export default function Profile(){
                                 readOnly
                                 />
                             </td>
-                            <td>{ele.updated_at}</td>
-                            <td><Link to={"/show/" + ele.article_id} >Link to the article</Link></td>
+                            <td>{TimeStringFormat(ele.updated_at)}</td>
+                            <td><Link to={"/show/" + ele.article_id} ><button className="btn text-white bg-success">Link to the post</button></Link></td>
                             <td>
-                            <button
+                            <button className="btn bg-danger text-white"
                                     onClick={() => {
                                         const temp_id = ele.id;
                                         deltest("https://demo-iu1g.onrender.com/comments/" + String(ele.id));
@@ -113,7 +132,7 @@ export default function Profile(){
                                 >delete
                             </button><br /><br />
                             <Link to={"/edit_comment/" + String(ele.id)}>
-                                edit
+                                <button className="btn bg-warning">edit</button>
                             </Link>
                             </td>
                         </tr>

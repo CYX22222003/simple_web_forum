@@ -12,7 +12,7 @@ import React from "react";
 export default function Navbar(){
     return (
     <div className="container-fluid">
-    <nav className="navbar navbar-expand-sm justify-content-center bg-secondary navbar-light">
+    <nav className="navbar navbar-expand-sm justify-content-center bg-warning navbar-light">
         
             <a className="navbar-brand" href="#">
             

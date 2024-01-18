@@ -8,6 +8,8 @@ import React, { useContext } from 'react';
 import { useState, useEffect} from 'react';
 import { AuthenContext } from '../App.tsx';
 
+
+
 export default function CreateArticle(){
     interface sent {
         title : string,
@@ -76,6 +78,9 @@ export default function CreateArticle(){
 
     return (
         <div className='container-lg bg-light text-center align-items-center'>
+        <br></br>
+        <h1>Creat New Posts</h1>
+        <hr />
         <form onSubmit={(e:any) => {
             e.preventDefault();
             
@@ -83,16 +88,18 @@ export default function CreateArticle(){
             const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id, tag_id:tag_id};
             posttest(obj_sent);
         }}>
-            <label className='form-label'>Type</label>
+            <p><strong>Type </strong><span className='tab'> </span>
             <select value={tag_id} onChange={(e:any) =>{setTagID(e.target.value);} }>
                 <option value={1}>article</option>
                 <option value={2}>diary</option>
                 <option value={3}>issue</option>
                 <option value={4}>others</option>
-            </select><br />
-            <label className="form-label">Title</label>
+            </select>
+            </p>
+            <br />
+            <label className="form-label"><strong>Title</strong></label>
             <input className="form-control" id= "title" value={title} onChange={(e) => {setTitle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id, tag_id: tag_id});}} /><br /><br />
-            <label className="form-label">Article</label>
+            <label className="form-label"><strong>Article</strong></label>
             <textarea className="form-control" id = "article" rows={10} value={article} onChange={e => {setArticle(e.target.value); setObj({"title" : title, "body" : article, email_id:email_id, tag_id: tag_id});}}/><br />
             <button className='btn bg-danger align-item-center' type='submit'>
                 Create New

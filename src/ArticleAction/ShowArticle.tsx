@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import CreateComment from "./CreateComment.tsx"
 import { AuthenContext } from '../App.tsx';
 
+
 function FindUsername({emailid}:{emailid:any}){
   const [username, setUserName] = useState<any>(null);
   useEffect( () => {
@@ -16,8 +17,10 @@ function FindUsername({emailid}:{emailid:any}){
     setUserName(data.address);
   }).catch((err:any) => {console.log(err);});});
   console.log(username);
-  return (<p>{username}</p>);
+  return (<p>Author: {username}</p>);
 }
+
+
 
 export default function ShowArticle(){
   const [article, setArticle] = useState<string>("");
@@ -57,20 +60,19 @@ export default function ShowArticle(){
   return (
     <div className='container-lg bg-light text-center align-items-center'>
       <br />
-      <h2>{title}</h2>
+      <h2 className='bg-light fst-italic'>{title}</h2><hr />
       <FindUsername emailid={author_id}/>
-      <br />
-      <label>{tagMapping[tag_id - 1]}</label>
+      <label>Type: {tagMapping[tag_id - 1]}</label> <br />
       <br />
       <textarea 
         className="form-control"
-        rows={10}
+        rows={15}
         value={article}
         readOnly
       />
       <br /> <br />
       <CreateComment article_id={article_id} email_id = {email_id}/>
-      <br /><br />
+      <br />
       <Comment id = {Number(userID)} isHide = {isHide} setIsHide={setIsHide}/>
     </div>
   )

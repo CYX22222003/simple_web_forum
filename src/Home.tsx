@@ -29,9 +29,11 @@ export default function Home(){
     
     return (
         <div>
-            <div className="container mt-4">
-            <h2>Article List</h2>
+            <div className="container-lg">
+            <br />
+            <h1>Home</h1>
             <SearchBar articlelst={articlelst} setArticleLs={setArticleLs}/>
+
             <div className="table-responsive" style={{ maxHeight: '700px', overflowY: 'scroll' }}>
                 <table className="table table-striped">
                 <thead>
@@ -45,8 +47,8 @@ export default function Home(){
                 return (
                     <tr>
                     <td><a href={"#show/" + String(item.id)} className="list-group-item list-group-item-action" key={item.id}>{item.title} </a></td>
-                    <td>{item.body.substring(0,10)+"..."}</td>
-                    <td><a href={"#show/" + String(item.id)}>full text</a></td>
+                    <td>{item.body.substring(0,15)+"..."}</td>
+                    <td><a href={"#show/" + String(item.id)}><button className="btn text-white bg-success">full text</button></a></td>
                     </tr>);
                 })
                 }

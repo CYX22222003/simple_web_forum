@@ -18,3 +18,5 @@
 - Manage the comments and articles created (Delete and Edit)
 - Search for posts by titles and types
 
+### other notes
+- the *netlify* branch is for the deployment of website on Netlify

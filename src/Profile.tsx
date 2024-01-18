@@ -72,6 +72,7 @@ export default function Profile(){
 
     return (
         <div className="container-lg bg-light text-center align-items-center">
+        <br></br>
         <h1>Profile page</h1><br />
         <div>
             <h3>My Posts</h3><br /><br />
@@ -89,8 +90,8 @@ export default function Profile(){
                             <td>{ele.title}</td>
                             <td>{ele.body.substring(0,10) + "..."}</td>
                             <td>{TimeStringFormat(ele.updated_at)}</td>
-                            <td><Link to={"/show/" + ele.id}><button className="btn btn-success">full text</button></Link></td>
-                            <td><Link to={"/edit_article/" + String(ele.id)}><button className="btn btn-warning">Edit</button></Link></td>
+                            <td><Link className = "text-white" to={"/show/" + ele.id}><button className="btn bg-success">full text</button></Link></td>
+                            <td><Link className = "text-white" to={"/edit_article/" + String(ele.id)}><button className="btn bg-warning">Edit</button></Link></td>
                             
                         </tr>
                     );
@@ -121,7 +122,7 @@ export default function Profile(){
                                 />
                             </td>
                             <td>{TimeStringFormat(ele.updated_at)}</td>
-                            <td><Link to={"/show/" + ele.article_id} ><button className="btn text-white bg-success">Link to the post</button></Link></td>
+                            <td><Link className="text-white" to={"/show/" + ele.article_id} ><button className="btn bg-secondary">Link to the post</button></Link></td>
                             <td>
                             <button className="btn bg-danger text-white"
                                     onClick={() => {
@@ -131,8 +132,8 @@ export default function Profile(){
                                     }}
                                 >delete
                             </button><br /><br />
-                            <Link to={"/edit_comment/" + String(ele.id)}>
-                                <button className="btn bg-warning">edit</button>
+                            <Link className="text-white" to={"/edit_comment/" + String(ele.id)}>
+                                <button className="btn bg-warning">Edit</button>
                             </Link>
                             </td>
                         </tr>

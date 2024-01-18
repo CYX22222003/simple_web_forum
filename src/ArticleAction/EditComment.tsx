@@ -49,19 +49,20 @@ export default function EditComment(){
 
     return (
         <div>
-        <p>Comment id: {commentID}</p>
+        <br></br>
+        <h1>Edit Comment {commentID}</h1><hr />
         <form onSubmit={(e:any) => {
             e.preventDefault();
             const {content} = e.target;
             const obj_sent = {"content" : content.value, article_id:article_id, email_id: email_id};
             puttest(obj_sent,"https://demo-iu1g.onrender.com/comments/" + commentID);
         }}>
-            <label className="form-label">Comment</label>
+            <label className="form-label fst-itallic fw-bold">Comment body</label>
             <textarea className="form-control" id = "content" value={content} 
                 rows={7}
                 onChange={e => {setContent(e.target.value);}}/><br />
-            <button className='btn bg-danger align-item-center' type='submit'>
-                Create New
+            <button className='btn bg-danger align-item-center text-white' type='submit'>
+                Edit Comment
             </button> 
             <br />
         </form>

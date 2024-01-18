@@ -5,7 +5,7 @@
 import React from "react";
 import SearchBar from "./SearchBar.tsx";
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 export default function Home(){
     
 
@@ -46,9 +46,9 @@ export default function Home(){
                 {articlelst.map((item:any) => {
                 return (
                     <tr>
-                    <td><a href={"#show/" + String(item.id)} className="list-group-item list-group-item-action" key={item.id}>{item.title} </a></td>
+                    <td><Link to={"#show/" + String(item.id)} className="list-group-item list-group-item-action" key={item.id}>{item.title} </Link></td>
                     <td>{item.body.substring(0,15)+"..."}</td>
-                    <td><a href={"#show/" + String(item.id)}><button className="btn text-white bg-success">full text</button></a></td>
+                    <td><Link className="text-white" to={"/show/" + String(item.id)}><button className="btn text bg-success">full text</button></Link></td>
                     </tr>);
                 })
                 }

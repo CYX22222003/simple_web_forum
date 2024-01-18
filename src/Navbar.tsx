@@ -8,7 +8,7 @@
         LOG OUT: log out from the current account
 */
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Navbar(){
     return (
     <div className="container-fluid">
@@ -33,23 +33,27 @@ export default function Navbar(){
             <div className="collapse navbar-collapse text-danger" id="collapsibleNavbar">
             <ul className="navbar-nav">
                 <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#home">Home</a>
+                <Link className="nav-link active text-white" aria-current="page" to="/home"><button className="btn btn-lg"><strong>Home</strong></button></Link>
                 </li>
 
                 <li className="nav-item">
-                <a className="nav-link" href="#create">CREATE</a>
+                <Link className="nav-link active text-white" aria-current="page" to="/create"><button className="btn btn-lg">Create</button></Link>
+                
                 </li>
 
                 <li className="nav-item">
-                <a className="nav-link" href="#profile">PROFILE</a>
+                <Link className="nav-link active text-white" aria-current="page" to="/profile"><button className="btn btn-lg">Profile</button></Link>
+                
                 </li>
 
                 <li className="nav-item">
-                <a className="nav-link" href="#logout">LOG OUT</a>
+                <Link className="nav-link active text-white" aria-current="page" to="/logout"><button className="btn btn-lg">Log out</button></Link>
+                
                 </li>
 
                 <li className="nav-item">
-                <a className="nav-link" href="#">LOG IN</a>
+                    <Link className="nav-link active text-white" aria-current="page" to="/"><button className="btn btn-lg">Log in</button></Link>
+              
                 </li>
             </ul>
         </div>

@@ -52,7 +52,8 @@ export default function EditArticle(){
     }
     return (
         <div>
-        <p>Article id: {articleID}</p>
+            <br></br>
+        <h1>Edit Article {articleID}</h1> <hr></hr>
         <form onSubmit={(e:any) => {
             e.preventDefault();
             
@@ -60,23 +61,29 @@ export default function EditArticle(){
             const obj_sent = {"title" : title.value, "body":article.value, email_id: email_id, tag_id:tag_id};
             puttest(obj_sent,"https://demo-iu1g.onrender.com/articles/" + articleID);
         }}>
-            <label className='form-label'>Type</label>
+            <label className='form-label'><strong>Type:</strong></label><span className="tab">   </span>
             <select value={tag_id} onChange={(e:any) =>{setTagID(e.target.value);} }>
                 <option value={1}>article</option>
                 <option value={2}>diary</option>
                 <option value={3}>issue</option>
                 <option value={4}>others</option>
-            </select><br />
-            <label className="form-label">Title</label>
+            </select><br /><br />
+            <label className="form-label"><strong>Title</strong></label>
             <input className="form-control" id= "title" value={title} 
                 onChange={(e) => {setTitle(e.target.value);}} /><br /><br />
-            <label className="form-label">Article</label>
+            <label className="form-label"><strong>Article</strong></label>
             <textarea className="form-control" id = "article" value={article} 
                 rows={10}
                 onChange={e => {setArticle(e.target.value);}}/><br />
-            <button className='btn bg-danger align-item-center' type='submit'>
-                Create New
-            </button> 
+            <div>
+                <button className='btn bg-danger align-item-center text-white' type='submit'>
+                    Edit Article
+                </button><span className="tab"> </span>
+
+                <button className='btn bg-warning align-item-center' onClick={() => {setArticle("--The original post has been deleted by user --")}}>
+                    Delete all
+                </button>
+            </div>
             <br />
         </form>
         </div>

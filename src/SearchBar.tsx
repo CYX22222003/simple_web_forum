@@ -42,7 +42,7 @@ export default function SearchBar({articlelst, setArticleLs} : {articlelst:any, 
             <ul className="nav nav-tabs">
             {itemLst.map((item) => (
             <li className="nav-item text-start list-group-item list-group-item-action">
-                <Link to={"/show/" + String(item.id)} className="text-dark">{item.title}</Link>
+                <Link className = "text-danger" to={"/show/" + String(item.id)}><button className="btn">{item.title}</button></Link>
                 </li>
             ))}
             </ul>

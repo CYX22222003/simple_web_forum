@@ -110,12 +110,12 @@ export default function Login(){
                 <label className="form-label" >Email: </label><br />
                 <input className="form-control-sm" value={email}
                     onChange={(e:any)=>{setEmail(e.target.value);}}
-                /> <br />
+                /> <br /><br />
                 {/* <label className="form-label">password:</label><br />
                 <input className="form-control-sm" type="password" value={passwd}
                     onChange={(e:any)=>{setPasswd(e.target.value);}}
                 /><br /> */}
-                <input type="submit" name="Login" disabled={emailarr.length === 0}/>
+                <button className="btn bg-secondary text-white" type="submit" name="Login" disabled={emailarr.length === 0}>Submit</button>
            </form><br />
            <Link to="/register">Register for a new account</Link>
         </div><br />

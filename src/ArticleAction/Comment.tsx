@@ -14,10 +14,10 @@ function FindUsername({emailid}:{emailid:any}){
   .then((response:any) => {
     return response.json();
   }).then((data:any) => {
-    console.log(data)
+    // console.log(data)
     setUserName(data.address);
   });}, []);
-  console.log(username);
+  // console.log(username);
   return (<p>{username}</p>);
 }
 
@@ -38,7 +38,7 @@ export default function Comment({id, isHide, setIsHide} : {id : number, isHide:b
     .then(response => {
       return response.json();
     }).then(data => {
-      console.log("data from backend: ",data);
+      // console.log("data from backend: ",data);
       const test : Array<comment> = data.filter(ele => ele.article_id === id);
       setLst(test);
     }

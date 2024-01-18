@@ -8,7 +8,7 @@
 - the app will be available at "**http://localhost:3000**"
 
 ### test the deployed final product
-- acess the webpage using URL "**https://CYX22222003.github.io/simple_web_forum**" 
+- acess the webpage using URL "**https://netlify--reliable-flan-2037a9.netlify.app/**" 
 - Register for a new account or Use a registered email to log in to the web forum
 - Refresh the webpage and check the response from the remote server if the authentication for a registered email fails
 

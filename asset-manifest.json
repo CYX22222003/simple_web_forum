@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/simple_web_forum/static/css/main.241951ba.css",
-    "main.js": "/simple_web_forum/static/js/main.9d107435.js",
+    "main.js": "/simple_web_forum/static/js/main.403f2c7c.js",
     "index.html": "/simple_web_forum/index.html",
     "main.241951ba.css.map": "/simple_web_forum/static/css/main.241951ba.css.map",
-    "main.9d107435.js.map": "/simple_web_forum/static/js/main.9d107435.js.map"
+    "main.403f2c7c.js.map": "/simple_web_forum/static/js/main.403f2c7c.js.map"
   },
   "entrypoints": [
     "static/css/main.241951ba.css",
-    "static/js/main.9d107435.js"
+    "static/js/main.403f2c7c.js"
   ]
 }

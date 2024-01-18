@@ -13,7 +13,8 @@
 - Refresh the webpage and check the response from the remote server if the authentication for a registered email fails
 
 ### features of the web forum
-- Create articles and publish to the forum
-- Add comments to articles in the forum
-- Manage the comments and articles created
+- Create posts and publish them to the forum
+- Add comments to posts in the forum
+- Manage the comments and articles created (Delete and Edit)
+- Search for posts by titles and types
 

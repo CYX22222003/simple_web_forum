@@ -74,9 +74,11 @@ export default function Register({email, setEmail, emaillst, Regstatus, setReg} 
     
 
     return (
-    <div className="container">
+    
+    <div className="container mt-4 bg-light text-center align-items-center">
         <br /><br />
-        {Regstatus && <div>
+        {Regstatus && <div className = "container mt-4 bg-light text-center align-items-center">
+            
             <h3>Register for a new account</h3><br /><br />
             <form onSubmit={handleSubmit}>
                 <label className="form-label">Username: </label> 
@@ -97,7 +99,7 @@ export default function Register({email, setEmail, emaillst, Regstatus, setReg} 
         <pre><h4>{status}</h4></pre>
         <br />
         <Link to="/login">Back to Login page</Link>
-        
-    </div>
+        </div>
+    
     )
 }

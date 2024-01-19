@@ -75,9 +75,9 @@ export default function SignUp(){
     return(
         <div>
             <br />
-            <h3>Register for an account</h3> <br />
-        <div className='container-lg bg-light text-center align-items-center'>
             
+        <div className='container-lg bg-light text-center align-items-center'>
+            <h3> Register for an account</h3> <br />
             <br />
             {/* <button onClick={() => {
                 getemail(address);

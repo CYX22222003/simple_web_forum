@@ -20,12 +20,16 @@ export default function Navbar(){
             
             <div className="navbar-toggler" data-bs-toggle="dropdown" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar">
                 <div className="collapsibleNavbar text-white">
-                    <a className="dropdown-item" href="#">Home</a>
-                    
-                    <a className="dropdown-item" href="#create">CREATE</a>
-                    <a className="dropdown-item" href="#profile">PROFILE</a>
-                    <a className="dropdown-item" href="#logout">Log out</a>
-                    <a className="dropdown-item" href="#">Log In</a>
+                    {/* <a className="dropdown-item" href="#">Home</a> */}
+                    <Link className="nav-link active text-white" aria-current="page" to="/home"><button className="btn btn-lg"><strong>Home</strong></button></Link>
+                    {/* <a className="dropdown-item" href="#create">CREATE</a> */}
+                    <Link className="nav-link active text-white" aria-current="page" to="/create"><button className="btn btn-lg">Create</button></Link>
+                    {/* <a className="dropdown-item" href="#profile">PROFILE</a> */}
+                    <Link className="nav-link active text-white" aria-current="page" to="/profile"><button className="btn btn-lg">Profile</button></Link>
+                    {/* <a className="dropdown-item" href="#logout">Log out</a> */}
+                    <Link className="nav-link active text-white" aria-current="page" to="/logout"><button className="btn btn-lg">Log out</button></Link>
+                    {/* <a className="dropdown-item" href="#">Log In</a> */}
+                    <Link className="nav-link active text-white" aria-current="page" to="/"><button className="btn btn-lg">Log in</button></Link>
                 </div>
             </div>
             

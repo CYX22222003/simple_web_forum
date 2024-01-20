@@ -46,8 +46,10 @@ export default function Home(){
                 {articlelst.map((item:any) => {
                 return (
                     <tr>
-                    <td><Link to={"#show/" + String(item.id)} className="list-group-item list-group-item-action" key={item.id}>{item.title} </Link></td>
-                    <td>{item.body.substring(0,15)+"..."}</td>
+                    <td><Link to={"/show/" + String(item.id)} className="text-danger" key={item.id}>
+                        <button className="btn">{item.title}</button> </Link>
+                        </td>
+                    <td>{item.body.substring(0,25)+"..."}</td>
                     <td><Link className="text-white" to={"/show/" + String(item.id)}><button className="btn text bg-success">full text</button></Link></td>
                     </tr>);
                 })

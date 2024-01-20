@@ -21,7 +21,7 @@ export default function EditComment(){
         }).then((data:any) => {
             setContent(data.content);
             setArticleID(data.article_id);
-            console.log(data);
+            // console.log(data);
         });
     },[])
 

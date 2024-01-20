@@ -37,12 +37,12 @@ export default function Login(){
         .then((response:any) => {
             return response.json();
         }).then((data:any) => {
-            console.log(data);
+            // console.log(data);
             setEmailArr(data);
             const tempxs:any = data.map((ele:any) => {
                 return ele.address;
             });
-            console.log("email arr:", tempxs);
+            // console.log("email arr:", tempxs);
             return tempxs;  
         }).then((arr:any)=>{
             console.log("address list:", arr);
@@ -75,7 +75,7 @@ export default function Login(){
     if(emailid !== 0){
         fetch("https://demo-iu1g.onrender.com/emails/"+String(emailid))
         .then((response:any) =>{
-            console.log(response);
+            // console.log(response);
             return response.json();
         }).then((data:any) => {
             if(passwd === ""){

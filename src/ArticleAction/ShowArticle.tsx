@@ -40,7 +40,7 @@ export default function ShowArticle(){
       return response.json()
     }).then(data => {
       // checking: 
-      console.log("data from backend: ",data);
+      //console.log("data from backend: ",data);
       setArticle(data.body);
       setTitle(data.title);
       setID(data.id);

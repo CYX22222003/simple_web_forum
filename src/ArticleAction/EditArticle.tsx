@@ -25,7 +25,7 @@ export default function EditArticle(){
             setArticle(data.body);
             setTitle(data.title);
             setTagID(data.tag_id);
-            console.log(data);
+            // console.log(data);
         });
     },[])
 

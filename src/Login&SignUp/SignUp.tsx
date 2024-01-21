@@ -103,7 +103,7 @@ export default function SignUp(){
                 <br />
                 <input name="submit" type="submit" /> <br />
                 {!status ? ("Not Registered") : ("Account Registered")} <br/ >
-                <Link to="/login">Back to Login page</Link>
+                <Link to="/">Back to Login page</Link>
             </form>
             {/* {<Register email={submitinfo} setEmail={setInfo} emaillst={maillst} Regstatus={status} setReg={setStatus}/> } */}
             

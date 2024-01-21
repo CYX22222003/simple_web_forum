@@ -3,18 +3,18 @@
 - Node v21.5.0
 - npm v10.2.5
 - react dependencies: 
-    ├── @testing-library/jest-dom@5.17.0
-    ├── @testing-library/react@13.4.0
-    ├── @testing-library/user-event@13.5.0
-    ├── @types/react-dom@18.2.18
-    ├── @types/react@18.2.47
-    ├── bootstrap@5.3.2
-    ├── gh-pages@6.1.1
-    ├── react-dom@18.2.0
-    ├── react-router-dom@6.21.1
-    ├── react-scripts@5.0.1
-    ├── react@18.2.0
-    └── web-vitals@2.1.4
+    - @testing-library/jest-dom@5.17.0
+    - @testing-library/react@13.4.0
+    - @testing-library/user-event@13.5.0
+    - @types/react-dom@18.2.18
+    - @types/react@18.2.47
+    - ootstrap@5.3.2
+    - gh-pages@6.1.1
+    - react-dom@18.2.0
+    - react-router-dom@6.21.1
+    - react-scripts@5.0.1
+    - react@18.2.0
+    - web-vitals@2.1.4
 
 ### Test in the local environment
 - Install **Node.js**, **Git** and **npm**

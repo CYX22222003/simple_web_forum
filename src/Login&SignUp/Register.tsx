@@ -98,7 +98,7 @@ export default function Register({email, setEmail, emaillst, Regstatus, setReg} 
         </div>} 
         <pre><h4>{status}</h4></pre>
         <br />
-        <Link to="/login">Back to Login page</Link>
+        <Link to="/">Back to Login page</Link>
         </div>
     
     )

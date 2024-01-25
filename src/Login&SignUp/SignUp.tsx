@@ -22,7 +22,7 @@ export default function SignUp(){
         .then(response => {
           return response.json()
         }).then(data => {
-          console.log("data from backend: ",data);
+          
           setMaillst(data);
           console.log(data.length);
         }

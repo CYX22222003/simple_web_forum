@@ -18,10 +18,10 @@ export default function Home(){
     .then((response:any) => {
         return response.json();
     }).then((data:any) => {
-        console.log(data);
+        
         setArticleLs(data);
         setTitleLst(data.map((ele:any) => {return ele.title;}));
-        console.log("article lists:", data);
+       
     }).catch(
         err =>{console.log(err);}
     );},[]);

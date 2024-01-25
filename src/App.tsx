@@ -27,7 +27,7 @@ function Logout(){
     console.log("autho state after logging out: ", AuthoState);
   }
   return (
-    <div className='container bg-danger'>
+    <div className='container'>
       <br></br>
       <h2 className='text-warning bg-danger'>Do you really want to log out?</h2> <br />
       <button className='bg-warning btn text-danger' onClick={HandleLogout}>Log out</button>

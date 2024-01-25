@@ -45,7 +45,7 @@ export default function Login(){
             // console.log("email arr:", tempxs);
             return tempxs;  
         }).then((arr:any)=>{
-            console.log("address list:", arr);
+            // console.log("address list:", arr);
             setAddressArr(arr);
         }
         ).catch(
